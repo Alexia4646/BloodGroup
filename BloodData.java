@@ -1,4 +1,4 @@
-
+// enum with blood type values
 enum BloodType{
     O, A, B, AB
 }
