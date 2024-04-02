@@ -73,7 +73,7 @@ public class BloodGUI extends JFrame {
                 String bloodTypeText = bloodTypeField.getText();
                 String rhFactorText = rhFactorField.getText();
 
-                // adding the exceptions
+                
                 try {
                     int id = Integer.parseInt(idField.getText());
                     int age = Integer.parseInt(ageField.getText());
@@ -84,12 +84,13 @@ public class BloodGUI extends JFrame {
                     Patient Patient = new Patient(id, age, bloodData);
                     if (!(rhFactorText.length() == 1 && (rhFactorText.charAt(0) == '+' || rhFactorText.charAt(0) == '-'))) {
                         throw new IllegalArgumentException("Rh Factor must be '+' or '-'.");
-                    }
+                    } 
+                    // I am displaying patient information
                     JOptionPane.showMessageDialog(null, "Patient Information:\nID:" + Patient.getIDnum() +
                             "\nAge:" + Patient.getAge() +
                             "\nBlood Type:" + Patient.getBloodData().getBloodtype() +
                             "\nRh Factor: " + Patient.getBloodData().getRhFactor());
-                } catch (NumberFormatException ex) {
+                } catch (NumberFormatException ex) { // I am displaying an error message for non-numeric input
                     JOptionPane.showMessageDialog(null, "Invalid input for ID or Age. Enter valid numbers.", "Error", JOptionPane.ERROR_MESSAGE);
                 } catch (IllegalArgumentException ex) {
                     JOptionPane.showMessageDialog(null, "Invalid input: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
